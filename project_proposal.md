@@ -1,4 +1,4 @@
-#NLP Project Proposal
+# NLP Project Proposal
 
 ## Data Science Job Listing Recommender
 
@@ -29,5 +29,7 @@
 ### MVP Goal
 
 - Preliminary topic modelling results, possibly visualised
+<br/><br/>
+
 
 \* likely to be combination of some/all tools listed
