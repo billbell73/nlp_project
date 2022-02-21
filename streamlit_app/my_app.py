@@ -3,10 +3,10 @@ from scipy.spatial import distance
 import pandas as pd
 import pickle5 as pickle
 
-with open('streamlit_app/doc_topic_5_copy.pickle', 'rb') as handle:
+with open('doc_topic_5.pickle', 'rb') as handle:
     doc_topic_5 = pickle.load(handle)
 
-with open('streamlit_app/big_job_df_copy.pickle', 'rb') as handle2:
+with open('big_job_df.pickle', 'rb') as handle2:
     df = pickle.load(handle2)
 
 def clear_pick():
