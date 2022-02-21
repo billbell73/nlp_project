@@ -3,10 +3,10 @@ from scipy.spatial import distance
 import pandas as pd
 import pickle
 
-with open('../doc_topic_5.pickle', 'rb') as handle:
+with open('doc_topic_5_copy.pickle', 'rb') as handle:
     doc_topic_5 = pickle.load(handle)
 
-df = pd.read_pickle("../big_job_df.pickle")
+df = pd.read_pickle("big_job_df_copy.pickle")
 
 def clear_pick():
     if 'jobs' in st.session_state:
