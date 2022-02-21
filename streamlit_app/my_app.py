@@ -30,12 +30,12 @@ def best_jobs(topic_inputs, level):
 
 
 st.title('Linkedin job listing finder')
-st.sidebar.write('**Choose your liking out of 10 for the following:**')
+st.sidebar.write('**Choose the extent (out of 10) you want your job to involve:**')
 
-input_0 = st.sidebar.slider('Communication with the business', 0, 10, on_change=clear_pick)
+input_0 = st.sidebar.slider('Communication with stakeholders', 0, 10, on_change=clear_pick)
 input_1 = st.sidebar.slider('Engineering', 0, 10, on_change=clear_pick)
 input_2 = st.sidebar.slider('Modelling / developing models', 0, 10, on_change=clear_pick)
-input_3 = st.sidebar.slider('Work/life balance', 0, 10, on_change=clear_pick)
+input_3 = st.sidebar.slider('Good work environment and work-life balance', 0, 10, on_change=clear_pick)
 input_4 = st.sidebar.slider('Startup-like environment', 0, 10, on_change=clear_pick)
 
 # this style hack was taken from https://discuss.streamlit.io/t/horizontal-radio-buttons/2114/3
