@@ -2,7 +2,6 @@ import streamlit as st
 from scipy.spatial import distance
 import pandas as pd
 import pickle
-import numpy as np
 
 with open('../doc_topic_5.pickle', 'rb') as handle:
     doc_topic_5 = pickle.load(handle)
