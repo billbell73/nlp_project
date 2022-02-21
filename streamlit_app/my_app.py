@@ -6,7 +6,8 @@ import pickle5 as pickle
 with open('streamlit_app/doc_topic_5_copy.pickle', 'rb') as handle:
     doc_topic_5 = pickle.load(handle)
 
-df = pd.read_pickle("streamlit_app/big_job_df_copy.pickle")
+with open('streamlit_app/big_job_df_copy.pickle', 'rb') as handle2:
+    df = pickle.load(handle2)
 
 def clear_pick():
     if 'jobs' in st.session_state:
