@@ -2,7 +2,7 @@ import streamlit as st
 from scipy.spatial import distance
 import pickle5 as pickle
 
-with open('../doc_topic_corex.pickle', 'rb') as handle:
+with open('../doc_topic_new_5.pickle', 'rb') as handle:
     doc_topic = pickle.load(handle)
 
 with open('../big_job_df.pickle', 'rb') as handle2:
@@ -13,7 +13,10 @@ def clear_pick():
         st.session_state.pop('jobs')
 
 def best_jobs(topic_inputs, level):
-    target = [ element / 10 for element in topic_inputs]
+    target = []
+    for index, input in enumerate(topic_inputs):
+        target.append(input * doc_topic.max(axis=0)[index] / 10)
+
     distances = distance.cdist([target], doc_topic, "cosine")[0]
     sorted_indexes = distances.argsort()
 
@@ -40,11 +43,11 @@ if 'jobs' not in st.session_state:
     st.title('Data Science job listing finder')
 st.sidebar.write('**Choose the extent (out of 10) you want your job to involve:**')
 
-input_0 = st.sidebar.slider('Communication with stakeholders', 1, 10, 5, on_change=clear_pick)
-input_1 = st.sidebar.slider('Engineering', 1, 10, 5, on_change=clear_pick)
-input_2 = st.sidebar.slider('Modelling / developing models', 1, 10, 5, on_change=clear_pick)
-input_3 = st.sidebar.slider('Good work environment and work-life balance', 1, 10, 5, on_change=clear_pick)
-input_4 = st.sidebar.slider('Startup-like environment', 1, 10, 5, on_change=clear_pick)
+input_0 = st.sidebar.slider('EDA and addressing business goals', 0, 10, 5, on_change=clear_pick)
+input_1 = st.sidebar.slider('Building models and engineering', 0, 10, 5, on_change=clear_pick)
+input_3 = st.sidebar.slider('Iterating models and optimising results', 0, 10, 5, on_change=clear_pick)
+input_4 = st.sidebar.slider('Communicating with stakeholders', 0, 10, 5, on_change=clear_pick)
+input_2 = st.sidebar.slider('Good work environment and work-life balance', 0, 10, 5, on_change=clear_pick)
 
 # this style hack was taken from https://discuss.streamlit.io/t/horizontal-radio-buttons/2114/3
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
