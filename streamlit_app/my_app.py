@@ -2,10 +2,10 @@ import streamlit as st
 from scipy.spatial import distance
 import pickle5 as pickle
 
-with open('../doc_topic_new_5.pickle', 'rb') as handle:
+with open('streamlit_app/doc_topic_new_5.pickle', 'rb') as handle:
     doc_topic = pickle.load(handle)
 
-with open('../big_job_df.pickle', 'rb') as handle2:
+with open('streamlit_app/big_job_df.pickle', 'rb') as handle2:
     df = pickle.load(handle2)
 
 def clear_pick():
@@ -33,7 +33,7 @@ def best_jobs(topic_inputs, level):
 
 col1, col2 = st.columns([25, 30])
 with col1:
-    st.image('LI-Logo.png', width=300)
+    st.image('streamlit_app/LI-Logo.png', width=300)
 with col2:
     if 'jobs' in st.session_state:
         st.write("")
