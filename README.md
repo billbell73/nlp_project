@@ -15,7 +15,7 @@ The aim of this project was to create a recommender for job listings that helps 
 ### Algorithms
 * I experimented with the following: LSA, NMF (with different vectorizers), LDA, CorEx
 * CorEx with anchor words produced clean and useful-looking topics, but this didn't seem to translate into relevant job listings
-* As a result TF-IDF and NMF won out as the topic modelling methodology for this project.
+* As a result TF-IDF and NMF won out as the topic modelling methodology for this project
 
 ### Tools
 
