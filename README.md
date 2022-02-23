@@ -23,7 +23,7 @@ The aim of this project was to create a recommender for job listings that helps 
 * Data manipulation: Pandas
 * Data storage: Pickle
 * Text preprocessing: Python re and spaCy
-* Vectoriser: TF-IDF
+* Vectorizer: TF-IDF
 * Topic Modelling: NMF 
 * App: Streamlit
 
