@@ -1,9 +1,14 @@
 import streamlit as st
 from scipy.spatial import distance
 import pickle5 as pickle
+import numpy as np
 
 with open('streamlit_app/doc_topic_new_5.pickle', 'rb') as handle:
     doc_topic = pickle.load(handle)
+
+topic_weight_deciles = []
+for number in range (0,11):
+    topic_weight_deciles.append(np.percentile(doc_topic, number * 10, axis=0))
 
 with open('streamlit_app/big_job_df.pickle', 'rb') as handle2:
     df = pickle.load(handle2)
@@ -15,7 +20,7 @@ def clear_pick():
 def best_jobs(topic_inputs, level):
     target = []
     for index, input in enumerate(topic_inputs):
-        target.append(input * doc_topic.max(axis=0)[index] / 10)
+        target.append(topic_weight_deciles[input][index])
 
     distances = distance.cdist([target], doc_topic, "cosine")[0]
     sorted_indexes = distances.argsort()
